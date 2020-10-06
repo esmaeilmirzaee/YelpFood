@@ -3,31 +3,13 @@ import { View, Text, StyleSheet } from 'react-native';
 
 import SearchBar from '../components/SearchBar';
 
-import yelp from '../api/yelp';
+import useRestaurants from '../hooks/useRestaurants';
+
+import RestaurantsList from '../components/RestaurntsList';
 
 const SearchScreen = () => {
   const [term, setTerm] = useState('');
-  const [results, setResults] = useState([]);
-  const [fetchError, setFetchError] = useState('');
-
-  const searchApi = async (searchTerm) => {
-    try {
-      const response = await yelp.get('/search', {
-        params: {
-          limit: 50,
-          term,
-          location: 'montreal',
-        },
-      });
-      setResults(response.data.businesses);
-    } catch (err) {
-      setFetchError(`Something wen wrong ${err}.`);
-    }
-  };
-
-  useEffect(() => {
-    searchApi('pasta');
-  }, []);
+  const [fetchError, searchApi, results] = useRestaurants(term);
 
   return (
     <View>
@@ -43,6 +25,9 @@ const SearchScreen = () => {
       ) : (
         <Text>We have found {results.length} results.</Text>
       )}
+      <RestaurantsList title='Cost Effective' />
+      <RestaurantsList title='Bit Pricer' />
+      <RestaurantsList title='Big Spender' />
     </View>
   );
 };
