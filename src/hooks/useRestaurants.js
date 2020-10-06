@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import yelp from '../api/yelp';
+
 export default () => {
   const [restaurants, setRestaurants] = useState([]);
   const [errMessages, setErrMessages] = useState('');
@@ -23,5 +24,5 @@ export default () => {
     searchApi('pasta');
   }, []);
 
-  return [errMessages, searchApi, restaurants];
+  return [searchApi, restaurants, errMessages];
 };

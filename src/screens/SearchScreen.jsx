@@ -9,7 +9,7 @@ import RestaurantsList from '../components/RestaurantsList';
 
 const SearchScreen = () => {
   const [term, setTerm] = useState('');
-  const [fetchError, searchApi, results] = useRestaurants();
+  const [searchApi, results, errMessages] = useRestaurants();
 
   const filterResultsByPrice = (price) => {
     return results.filter((result) => {
@@ -26,8 +26,8 @@ const SearchScreen = () => {
           searchApi(term);
         }}
       />
-      {fetchError.length > 0 ? (
-        <Text>{fetchError}</Text>
+      {errMessages.length > 0 ? (
+        <Text>{errMessages}</Text>
       ) : (
         <Text>We have found {results.length} results.</Text>
       )}
