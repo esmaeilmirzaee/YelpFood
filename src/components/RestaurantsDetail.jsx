@@ -15,7 +15,7 @@ const RestaurantsDetail = ({ restaurant }) => {
 
 const styles = StyleSheet.create({
   parentStyle: {
-    marginBottom: 5,
+    margin: 10,
   },
   imageStyle: {
     width: 250,
