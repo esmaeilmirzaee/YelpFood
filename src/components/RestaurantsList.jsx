@@ -11,6 +11,7 @@ const RestaurantsList = ({ title, restaurants }) => {
       </Text>
       <FlatList
         horizontal
+        showsHorizontalScrollIndicator={false}
         data={restaurants}
         keyExtractor={(restaurant) => restaurant.id}
         renderItem={({ item }) => {

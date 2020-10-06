@@ -7,7 +7,7 @@ const RestaurantsDetail = ({ restaurant }) => {
       <Image style={styles.imageStyle} source={{ uri: restaurant.image_url }} />
       <Text style={styles.nameStyle}>{restaurant.name}</Text>
       <Text style={styles.infoStyle}>
-        {restaurant.rating} starts, {restaurant.review_count} reviews
+        {restaurant.rating} Starts, {restaurant.review_count} Reviews
       </Text>
     </View>
   );
