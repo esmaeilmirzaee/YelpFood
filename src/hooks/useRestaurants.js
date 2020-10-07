@@ -11,7 +11,7 @@ export default () => {
         params: {
           limit: 50,
           term: searchTerm,
-          location: 'montreal',
+          location: 'san jose',
         },
       });
       setRestaurants(response.data.businesses);
